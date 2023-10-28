@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Phonebook {
     public static void main(String[] args) {
-        // Создание HashMap для хранения имени и телефона
         Map<String, String> phoneBook = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
@@ -111,7 +110,6 @@ public class Phonebook {
                 }
             }
 
-            // Чтение записей из файла и вывод на экран
             try {
                 BufferedReader reader = new BufferedReader(new FileReader("phonebook.txt"));
                 String line;
@@ -126,29 +124,24 @@ public class Phonebook {
         }
     }
 
-    // Метод для вывода всей телефонной книги в порядке убывания номеров
     private static void printPhoneBookDescending(Map<String, String> phoneBook) {
         List<Map.Entry<String, String>> entries = new ArrayList<>(phoneBook.entrySet());
 
-        // Sort entries in reverse order by comparing values
         entries.sort((e1, e2) -> {
             String[] phoneNumbers1 = e1.getValue().split(",");
             String[] phoneNumbers2 = e2.getValue().split(",");
 
-            // Compare number of phone numbers
             if (phoneNumbers1.length > phoneNumbers2.length) {
                 return -1;
             } else if (phoneNumbers1.length < phoneNumbers2.length) {
                 return 1;
             } else {
 
-                // If same number of numbers, compare first number
                 int compare = phoneNumbers2[0].compareTo(phoneNumbers1[0]);
                 if (compare != 0) {
                     return compare;
                 }
 
-                // Compare remaining numbers
                 for (int i = 1; i < phoneNumbers1.length; i++) {
                     compare = phoneNumbers2[i].compareTo(phoneNumbers1[i]);
                     if (compare != 0) {
