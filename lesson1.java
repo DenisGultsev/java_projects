@@ -1,8 +1,26 @@
-﻿public class lesson1 {
-    public static void main(String[] args) {
-        System.out.println("Первая лекция!");
-    }
+﻿// public class lesson1 {
+//     public static void main(String[] args) {
+//         System.out.println("Первая лекция!");
+//     }
 
+// }
+import java.util.Scanner;
+
+public class lesson1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите первое целое число: ");
+        int number1 = scanner.nextInt();
+
+        System.out.print("Введите второе целое число: ");
+        int number2 = scanner.nextInt();
+
+        int sum = number1 + number2;
+        System.out.println("Сумма чисел: " + sum);
+
+        scanner.close();
+    }
 }
 
 /*
